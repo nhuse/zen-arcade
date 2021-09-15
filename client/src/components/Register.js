@@ -47,23 +47,21 @@ export default function Register({ setUser }) {
     }
 
     return (
-        <div style={{ backgroundColor: "black", height: "95vh", position: "relative" }}> 
-            <div className="login-signup-form-wrapper">
-                <form className="login-signup-form" onSubmit={handleSubmit}>
-                    <br/>
-                    <label htmlFor="name" >First Name:</label><br/>
-                    <input type="text" name="name" className="input-field" id="name" value={formData.name} onChange={handleChange} /><br/><br/>
-                    <label htmlFor="username" >Username:</label><br/>
-                    <input type="text" name="username" className="input-field" id="username" value={formData.username} onChange={handleChange} /><br/><br/>
-                    <label htmlFor="email">Email:</label><br/>
-                    <input type="text" name="email" className="input-field" id="email" value={formData.email} onChange={handleChange} /><br/><br/>
-                    <label htmlFor="password">Password:</label><br/>
-                    <input type="password" name="pass" className="input-field" id="password" value={formData.pass} onChange={handleChange} /><br/><br/>
-                    <label htmlFor="confPass">Confirm Password:</label><br/>
-                    <input type="password" name="confPass" className="input-field" id="confPass" value={formData.confPass} onChange={handleChange} /><br/><br/>
-                    <button type="submit" style={{ borderRadius: "30px" }} >Submit</button>
-                </form>
-            </div>
+        <div className="login-signup-form-wrapper">
+            <form className="login-signup-form" onSubmit={handleSubmit}>
+                <br/>
+                <label htmlFor="name" >First Name:</label><br/>
+                <input type="text" name="name" className="input-field" id="name" value={formData.name} onChange={handleChange} /><br/><br/>
+                <label htmlFor="username" >Username:</label><br/>
+                <input type="text" name="username" className="input-field" id="username" value={formData.username} onChange={handleChange} /><br/><br/>
+                <label htmlFor="email">Email:</label><br/>
+                <input type="text" name="email" className="input-field" id="email" value={formData.email} onChange={handleChange} /><br/><br/>
+                <label htmlFor="password">Password:</label><br/>
+                <input type="password" name="pass" className="input-field" id="password" value={formData.pass} onChange={handleChange} /><br/><br/>
+                <label htmlFor="confPass">Confirm Password:</label><br/>
+                <input type="password" name="confPass" className="input-field" id="confPass" value={formData.confPass} onChange={handleChange} /><br/><br/>
+                <button type="submit" style={{ borderRadius: "30px" }} >Submit</button>
+            </form>
         </div>
     )
 }

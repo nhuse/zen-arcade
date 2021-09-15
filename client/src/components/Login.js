@@ -37,17 +37,15 @@ export default function Login({ setUser }) {
     }
 
     return (
-        <div style={{ backgroundColor: "black", height: "95vh", position: "relative" }}> 
-            <div className="login-signup-form-wrapper">
-                <form className="login-signup-form" onSubmit={handleSubmit}>
-                    <br/>
-                    <label htmlFor="email">Email:</label><br/>
-                    <input type="text" name="email" className="input-field" id="email" value={loginInfo.email} onChange={handleChange} /><br/><br/>
-                    <label htmlFor="password">Password:</label><br/>
-                    <input type="password" name="password" className="input-field" id="password" value={loginInfo.password} onChange={handleChange} /><br/><br/>
-                    <button type="submit" style={{ borderRadius: "30px" }}>Submit</button>
-                </form>
-            </div>
+        <div className="login-signup-form-wrapper">
+            <form className="login-signup-form" onSubmit={handleSubmit}>
+                <br/>
+                <label htmlFor="email">Email:</label><br/>
+                <input type="text" name="email" className="input-field" id="email" value={loginInfo.email} onChange={handleChange} /><br/><br/>
+                <label htmlFor="password">Password:</label><br/>
+                <input type="password" name="password" className="input-field" id="password" value={loginInfo.password} onChange={handleChange} /><br/><br/>
+                <button type="submit" style={{ borderRadius: "30px" }}>Submit</button>
+            </form>
         </div>
     )
 }
