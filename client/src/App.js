@@ -47,8 +47,9 @@ function App() {
   if(!user) {
     return (
       <div style={{ backgroundColor: "black", height: "100vh" }}>
-        <NavBar user={user} setUser={setUser} setGameId={setGameId} />
-        <h1 style={{color: "white", marginTop: "0", textAlign: "center" }}>Please log in or register to play games!</h1>
+        <div style={{ paddingBottom: "10px" }}>
+          <NavBar user={user} setUser={setUser} setGameId={setGameId} />
+        </div>
         <Switch>
           <Route path="/log_in">
             <Login setUser={setUser} />
@@ -62,24 +63,24 @@ function App() {
   }
   return (
     <div style={{ backgroundColor: "black", height: "100vh" }}>
-    <div>
-      <NavBar user={user} setUser={setUser} setGameId={setGameId} />
-    </div>
-    <Switch>
-      <Route exact path={`/game/${gameId}`} >
-        <GameRender gameId={gameId} user={user} />
-      </Route>
-      <Route exact path="/home">
-        <Dashboard games={games} setGames={setGames} user={user} setGameId={setGameId} />
-      </Route>
-      <Route path="/profile">
-        <Profile reviews={reviews} setUser={setUser} user={user} games={games} setReviews={setReviews} />
-      </Route>
-      <Route exact path={`/game/${gameId}/reviews`}>
-        <Reviews reviews={reviews} setReviews={setReviews} gameId={gameId} userId={user.id} />
-      </Route>
-    </Switch>
-    <Redirect to="/home" />
+      <div>
+        <NavBar user={user} setUser={setUser} setGameId={setGameId} />
+      </div>
+      <Switch>
+        <Route exact path={`/game/${gameId}`} >
+          <GameRender gameId={gameId} user={user} />
+        </Route>
+        <Route exact path="/home">
+          <Dashboard games={games} setGames={setGames} user={user} setGameId={setGameId} />
+        </Route>
+        <Route path="/profile">
+          <Profile reviews={reviews} setUser={setUser} user={user} games={games} setReviews={setReviews} />
+        </Route>
+        <Route exact path={`/games/${gameId}/reviews`}>
+          <Reviews reviews={reviews} setReviews={setReviews} gameId={gameId} userId={user.id} />
+        </Route>
+      </Switch>
+      <Redirect to="/home" />
     </div>
   )
 }
