@@ -1,13 +1,64 @@
+#profile-wrapper {
+    color: white;
+    display: flex;
+    flex-flow: row wrap;
+}
+
 .all-user-reviews-wrapper {
-    margin: 0px;
-    width: 300px;
+    float: left;
+    height: auto;
+    width: 60%;
     word-wrap: break-word;
     text-align: center;
     margin-left: 10px;
+    margin-bottom: auto;
 }
 
 .profile-game-reviews-ul {
     list-style: none;
     padding: 0;
     width: 300px;
+}
+
+.profile-game-reviews-wrapper {
+    padding: 0 10px 0 10px
+}
+
+.profile-game-scores-ul {
+    list-style: none;
+    padding: 0;
+    width: 300px;
+}
+
+.all-user-highscores-wrapper {
+    float: right;
+    height: auto;
+    width: 38%;
+    word-wrap: break-word;
+    text-align: center;
+    margin-left: 10px;
+    margin-bottom: auto;
+}
+
+.profile-game-scores-li {
+    list-style-type: none;
+}
+
+.score-lists {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.reviews-lists {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.edit-profile-avi {
+    padding-top: 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

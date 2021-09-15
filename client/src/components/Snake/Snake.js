@@ -354,22 +354,6 @@ class Snake extends React.Component {
     let newDirection = this.state.direction === 'up' ? 'up' : 'down'
     this.setState({ direction: newDirection })
   }
-  //setting up posting score sends it hundreds of times
-  componentWillUpdate(nextProps, nextState) {
-    if (nextState.isGameOver) {
-      fetch('/scores', {
-        method: "POST",
-        headers: {
-            'Content-Type': "application/json"
-        },
-        body: JSON.stringify({
-            game_id: this.props.gameId,
-            user_id: this.props.user.id,
-            score: this.state.score
-        })
-      }) 
-    }
-  }
 
   render() {
     // Game over
@@ -381,6 +365,9 @@ class Snake extends React.Component {
           highScore={this.state.highScore}
           newHighScore={this.state.newHighScore}
           score={this.state.score}
+          gameId={this.props.gameId}
+          userId={this.props.user.id}
+          
         />
       )
     }
@@ -422,6 +409,10 @@ class Snake extends React.Component {
         <div id='Score' style={{ fontSize: this.state.width / 20 }}>
           HIGH-SCORE: {this.state.highScore}&ensp;&ensp;&ensp;&ensp;SCORE:{' '}
           {this.state.score}
+          <div><br/>
+          Use [A][W][S][D] or [←][↑][↓][→] to MOVE<br/>
+          Use [SPACE] to RESTART on GAME OVER
+          </div>
         </div>
       </div>
     )

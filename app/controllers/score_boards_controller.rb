@@ -1,9 +1,14 @@
 class ScoreBoardsController < ApplicationController
-    def show
-        scores = ScoreBoard.where(game_id: params[:game_id])
-        render json: scores, only: [:score], include: { user: { only: [:username] }}, status: :ok
+
+    def user_scores
+        scores = ScoreBoard.where(user_id: params[:user_id])
+        render json: scores, only: [:score, :game_id, :created_at], include: { user: { only: [:username] }}, status: :ok
     end
 
+    def game_scores
+        scores = ScoreBoard.all.sort{|a, b| a.score <=> b.score}.reverse
+        render json: scores, only: [:score, :game_id, :created_at], include: { user: { only: [:username] }}, status: :ok
+    end
     def create
         score = ScoreBoard.create(score_params)
         render json: score, status: :created

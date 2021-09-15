@@ -11,12 +11,12 @@
     height: auto;
     width: 400px;
     border-radius: 30px;
+    text-align: center;
 }
  
 .game-info {
     margin: 20px;
     color: rgba(255,255,255,.87);
-    text-align: center;
     overflow-wrap: break-word;
 }
  
@@ -28,7 +28,10 @@
 }
 
 .review-button {
-    text-align: center;
     width: 70px;
-    margin-left: 165px;
+    border-radius: 20px;
+}
+
+.game-card-highscore-wrapper {
+    color: rgba(255,255,255,.87);
 }

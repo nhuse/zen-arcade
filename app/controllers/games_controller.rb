@@ -7,6 +7,10 @@ class GamesController < ApplicationController
 
     def show
         game = Game.find_by!(id: params[:id])
-        render json: game, include: [:reviews], status: :ok
+        scores = game.highscores_all_users
+        render json: scores, only: [:score, :game_id, :created_at], include: [ :reviews, {user: { only: :username } } ], status: :ok
+        # render json: game, include: [:reviews], status: :ok
     end
+    
+
 end

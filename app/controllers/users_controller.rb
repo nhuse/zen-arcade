@@ -10,6 +10,12 @@ class UsersController < ApplicationController
         render json: @current_user, status: :ok
     end
 
+    def update
+        user= User.find_by(id: params[:id])
+        user.update!(profile_img: params[:profile_img])
+        render json: user, status: :accepted
+    end
+
 
     private
 

@@ -10,7 +10,7 @@ import { useStage } from './hooks/useStage'
 import { createStage, collisionDetection } from './gameHelpers'
 import { useGameStatus } from './hooks/useGameStatus'
 
-export default function Tetris({ hiScores, gameId, user }) {
+export default function Tetris({ gameId, user }) {
     const [dropTime, setDropTime] = useState(null)
     const [gameOver, setGameover] = useState(false)
 
@@ -23,8 +23,6 @@ export default function Tetris({ hiScores, gameId, user }) {
             updatePlayerPosition({ x: direction, y: 0 })
         }
     }
-
-    console.log(hiScores)
     console.log(gameId)
 
     function startGame() {
@@ -112,11 +110,25 @@ export default function Tetris({ hiScores, gameId, user }) {
                 <Stage stage={stage}/>
                 <aside>
                     { gameOver ? <Display gameOver={gameOver} text={"Game Over"}/> :
-                    <div>
-                        {hiScores ? <h1 style={{ color: "white" }}>{hiScores.score}</h1> : null}
+                    <div style={{ wordBreak: "break-word", maxWidth: "300px" }}>
                         <Display text={`Score: ${score}`} />
                         <Display text={`Rows: ${rows}`} />
                         <Display text={`Level: ${level}`} />
+                        <div style={{color: "#999", textAlign: "center", border: "4px solid grey", borderRadius: "20px", marginBottom: "20px"}}>
+                            <h1 style={{ margin: "5px 0", fontWeight: "bold", textDecoration: "underline" }}>Instructions</h1>
+                            <ul style={{padding: "0", listStyle: "none" }}>
+                                <li><h2 style={{margin: '5px', fontSize: "15px" }}>Start a new game</h2> 
+                                    SPACE
+                                </li> <br/>
+                                <li><h2 style={{margin: '5px', fontSize: "15px" }}>Move Tetrominos</h2> 
+                                    LEFT/RIGHT arrow keys
+                                </li> <br/>
+                                <li><h2 style={{margin: '5px', fontSize: "15px" }}>Rotate Tetrominos</h2>  
+                                    UP arrow key
+                                </li> <br/>
+                                <li style={{ marginLeft: '5px', marginRight: '5px', fontSize: "15px" }}>Once 10 rows are cleared, the level and speed will increase. Be careful and have fun!</li>
+                            </ul>
+                        </div>
                     </div>
                     }
                     <StartButton onClick={startGame}/>

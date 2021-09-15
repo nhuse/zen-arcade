@@ -40,7 +40,7 @@ export default function NavBar({ user, setUser, setGameId }) {
                 </NavLink>
             </button >
             <button onClick={handleLogoutClick} className="logout-button" >Logout</button>
-            <button className= "nav-button" id="profile-wrapper" >
+            <button className="nav-button" id="profile-wrapper-button" >
                 <NavLink to="/profile"
                 style={{ color: "grey" }}
                 activeStyle={{ fontWeight: "bold", color: "black" }}>

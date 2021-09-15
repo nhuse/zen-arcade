@@ -14,7 +14,6 @@ function App() {
   const [gameId, setGameId] = useState()
   const [reviews, setReviews] = useState([])
   const [games, setGames] = useState([])
-  const [asteroidsHS, setAsteroidsHS] = useState()
 
   useEffect(async() => {
     // auto-login
@@ -45,7 +44,6 @@ function App() {
     setGameId(null)
   }, [user])
 
-  console.log(`app ${gameId}`)
   if(!user) {
     return (
       <div style={{ backgroundColor: "black", height: "100vh" }}>
@@ -68,20 +66,14 @@ function App() {
       <NavBar user={user} setUser={setUser} setGameId={setGameId} />
     </div>
     <Switch>
-      <Route path="/log_in">
-        <Login setUser={setUser} />
-      </Route>
-      <Route path="/register">
-        <Register setUser={setUser} />
-      </Route>
       <Route exact path={`/game/${gameId}`} >
-        <GameRender gameId={gameId} user={user} setAsteroidsHS={setAsteroidsHS} />
+        <GameRender gameId={gameId} user={user} />
       </Route>
       <Route exact path="/home">
         <Dashboard games={games} setGames={setGames} user={user} setGameId={setGameId} />
       </Route>
       <Route path="/profile">
-        <Profile reviews={reviews} user={user} games={games} setReviews={setReviews} />
+        <Profile reviews={reviews} setUser={setUser} user={user} games={games} setReviews={setReviews} />
       </Route>
       <Route exact path={`/game/${gameId}/reviews`}>
         <Reviews reviews={reviews} setReviews={setReviews} gameId={gameId} userId={user.id} />
