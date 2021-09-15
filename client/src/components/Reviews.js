@@ -9,6 +9,7 @@ export default function Reviews({ reviews, setReviews, userId, gameId }) {
 
     let filteredReviews = []
     if(reviews.length > 0) {
+        console.log("Reviews", gameId)
         filteredReviews = reviews.filter(r => r.game_id === gameId)
     }
 

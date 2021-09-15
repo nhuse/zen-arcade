@@ -1,7 +1,8 @@
 class ReviewsController < ApplicationController
     skip_before_action :authorize, only: :index
     def index
-        render json: Review.all, include: { user: { only: [:name] }}
+        reviews = Review.order(:id)
+        render json: reviews, include: { user: { only: [:name] }}
     end
 
     def create
@@ -11,8 +12,8 @@ class ReviewsController < ApplicationController
 
     def update
         review = Review.find_by(id: params[:id])
-        review.update!(review_params)
-        render json: Review.all, include: { user: { only: [:name] }}, status: :accepted
+        review.update!(review: params[:review])
+        render json: Review.order(:id), include: { user: { only: [:name] }}, status: :accepted
     end
 
     def destroy
@@ -24,7 +25,7 @@ class ReviewsController < ApplicationController
     private
 
     def review_params
-        params.permit(:user_id, :game_id, :review)
+        params.permit(:id, :user_id, :game_id, :review)
     end
     
 end

@@ -55,7 +55,7 @@ export default function Tetris({ gameId, user }) {
     }
 
     useEffect(() => {
-        if(gameOver) {
+        if(gameOver && score > 0) {
             let scoreData={
                 game_id: gameId,
                 user_id: user.id,

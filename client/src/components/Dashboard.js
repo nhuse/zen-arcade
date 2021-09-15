@@ -21,7 +21,7 @@ export default function Dashboard({ games, setGameId }) {
                 const filteredScores = gameScores.filter(score => score.game_id === game.id)
                 return (
                     <div key={game.id} className="card" onClick={() => handleGameClick(game.id)}>
-                        <Link to={`/games/${game.id}`} style={{ textDecoration: "none" }}>
+                        <Link to={`/game/${game.id}`} style={{ textDecoration: "none" }}>
                             <div className="game-info">
                                 <img src={game.game_image_url} className="game-img" alt={`${game.name}-cover-art`} />
                                 <h1>{game.name}</h1>
@@ -29,7 +29,7 @@ export default function Dashboard({ games, setGameId }) {
                             </div>
                         </Link>
                         <button className="review-button">
-                            <Link to={`/games/${game.id}/reviews`}
+                            <Link to={`/reviews`}
                             style={{ color: "grey" }}
                             activeStyle={{ fontWeight: "bold", color: "black" }} >
                                 Reviews

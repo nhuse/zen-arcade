@@ -40,13 +40,13 @@ function App() {
     .then(data => setReviews(data))
   }, [])
 
-  useEffect(() => {
-    setGameId(null)
-  }, [user])
+  // useEffect(() => {
+  //   setGameId(null)
+  // }, [user])
 
   if(!user) {
     return (
-      <div style={{ backgroundColor: "black", height: "100vh" }}>
+      <div style={{ backgroundColor: "black" }}>
         <div style={{ paddingBottom: "10px" }}>
           <NavBar user={user} setUser={setUser} setGameId={setGameId} />
         </div>
@@ -62,7 +62,7 @@ function App() {
     )
   }
   return (
-    <div style={{ backgroundColor: "black", height: "100vh" }}>
+    <div style={{ backgroundColor: "black" }}>
       <div>
         <NavBar user={user} setUser={setUser} setGameId={setGameId} />
       </div>
@@ -76,11 +76,10 @@ function App() {
         <Route path="/profile">
           <Profile reviews={reviews} setUser={setUser} user={user} games={games} setReviews={setReviews} />
         </Route>
-        <Route exact path={`/games/${gameId}/reviews`}>
+        <Route exact path={`/reviews`}>
           <Reviews reviews={reviews} setReviews={setReviews} gameId={gameId} userId={user.id} />
         </Route>
       </Switch>
-      <Redirect to="/home" />
     </div>
   )
 }
