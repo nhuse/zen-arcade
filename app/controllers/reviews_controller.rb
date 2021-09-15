@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
     def update
         review = Review.find_by(id: params[:id])
         review.update!(review_params)
-        render json: Review.all, status: :accepted
+        render json: Review.all, include: { user: { only: [:name] }}, status: :accepted
     end
 
     def destroy
