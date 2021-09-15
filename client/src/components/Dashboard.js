@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import './styles/GameCardStyles.css'
 
 export default function Dashboard({ games, setGameId }) {
+    console.log(games)
     function handleGameClick(id) {
         setGameId(id)
     }
@@ -10,7 +11,7 @@ export default function Dashboard({ games, setGameId }) {
             <div className="game-flex-container">
                 {games.map((game) => (
                     <div key={game.id} className="card" onClick={() => handleGameClick(game.id)}>
-                        <Link to={`/games/${game.id}`} style={{ textDecoration: "none" }}>
+                        <Link to={`/game/${game.id}`} style={{ textDecoration: "none" }}>
                             <div className="game-info">
                                 <img src={game.game_image_url} className="game-img" alt={`${game.name}-cover-art`} />
                                 <h1>{game.name}</h1>
@@ -18,7 +19,7 @@ export default function Dashboard({ games, setGameId }) {
                             </div>
                         </Link>
                         <button className="review-button">
-                            <Link to={`games/${game.id}/reviews`}
+                            <Link to={`game/${game.id}/reviews`}
                             style={{ color: "grey" }}
                             activeStyle={{ fontWeight: "bold", color: "black" }} >
                                 Reviews

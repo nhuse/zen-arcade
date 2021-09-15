@@ -41,7 +41,7 @@ export default function Register({ setUser }) {
             }
             else {
                 setUser(json)
-                history.push("/games")
+                history.push("/home")
             }
         })
     }

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  namespace :api do
     get '/me', to: 'users#show'
     post '/signup', to: 'users#create'
     post '/login', to: 'sessions#create'
@@ -11,7 +10,6 @@ Rails.application.routes.draw do
     post '/scores', to: 'score_boards#create'
 
     resources :reviews
-  end
   
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

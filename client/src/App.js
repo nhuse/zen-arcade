@@ -49,51 +49,52 @@ function App() {
   console.log(`app ${gameId}`)
   if(!user) {
     return (
-      <div style={{ backgroundColor: "black", height: "100vh" }}>
-        <div>
-          <NavBar user={user} setUser={setUser} setGameId={setGameId} />
-        </div>
-        <Switch>
-          <Route exact path="/" >
-            <FreeHome />
-          </Route>
-          <Route path="/login">
+      <>
+      <div>
+        <NavBar user={user} setUser={setUser} setGameId={setGameId} />
+      </div>
+      <Switch>
+          <Route path="/log_in">
             <Login setUser={setUser} />
           </Route>
           <Route path="/register">
             <Register setUser={setUser} />
           </Route>
-          <Route path="/games">
-            <Dashboard games={games} user={user} setGameId={setGameId} />
-          </Route>
-        </Switch>
-      </div>
-    );
-  }
+      </Switch>
+      <FreeHome setUser={setUser} setGameId={setGameId} user={user} />
+      </>
+    )
+  } else {
     return (
       <div style={{ backgroundColor: "black", height: "100vh" }}>
         <div>
           <NavBar user={user} setUser={setUser} setGameId={setGameId} />
         </div>
         <Switch>
-        <Route exact path="/" >
+          <Route exact path="/free_home" >
             <FreeHome />
           </Route>
-          <Route exact path={`/games/${gameId}`} >
+          <Route path="/log_in">
+            <Login setUser={setUser} />
+          </Route>
+          <Route path="/register">
+            <Register setUser={setUser} />
+          </Route>
+          <Route exact path={`/game/${gameId}`} >
             <GameRender gameId={gameId} user={user} setAsteroidsHS={setAsteroidsHS} />
           </Route>
-          <Route exact path="/games">
+          <Route exact path="/home">
             <Dashboard games={games} setGames={setGames} user={user} setGameId={setGameId} />
           </Route>
           <Route path="/profile">
             <Profile reviews={reviews} user={user} games={games} setReviews={setReviews} />
           </Route>
-          <Route exact path={`/games/${gameId}/reviews`}>
+          <Route exact path={`/game/${gameId}/reviews`}>
             <Reviews reviews={reviews} setReviews={setReviews} gameId={gameId} userId={user.id} />
           </Route>
         </Switch>
       </div>
-    )
+    )}
 }
 
 export default App;

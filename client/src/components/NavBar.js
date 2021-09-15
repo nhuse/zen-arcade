@@ -33,7 +33,7 @@ export default function NavBar({ user, setUser, setGameId }) {
             { user ? 
             (<>
             <button className="nav-button" >
-                <NavLink exact to="/games"
+                <NavLink exact to="/home"
                 style={{ color: "grey" }}
                 activeStyle={{ fontWeight: "bold", color: "black" }}>
                     Home
@@ -52,7 +52,7 @@ export default function NavBar({ user, setUser, setGameId }) {
             : 
             (<>
             <button className="nav-button" >
-                <NavLink to="/login"
+                <NavLink to="/log_in"
                 style={{ color: "grey" }}
                 activeStyle={{ fontWeight: "bold", color: "black" }}>
                     Login
