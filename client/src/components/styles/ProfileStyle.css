@@ -1,0 +1,13 @@
+.all-user-reviews-wrapper {
+    margin: 0px;
+    width: 300px;
+    word-wrap: break-word;
+    text-align: center;
+    margin-left: 10px;
+}
+
+.profile-game-reviews-ul {
+    list-style: none;
+    padding: 0;
+    width: 300px;
+}
