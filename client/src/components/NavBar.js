@@ -1,6 +1,8 @@
 import { NavLink } from 'react-router-dom'
 import { useHistory } from 'react-router-dom';
 import './styles/NavBarStyles.css'
+import logo from './styles/IMG_0254.jpg'
+
 
 export default function NavBar({ user, setUser, setGameId }) {
     const history = useHistory()
@@ -48,6 +50,7 @@ export default function NavBar({ user, setUser, setGameId }) {
                 </NavLink> 
                 <img src={userImg} className="profile-pic" alt="Profile"/>
             </button>
+            <img src={logo} style={{height: "50%", marginLeft: "50px"}} id="logo" />
             </>) 
             : 
             (<>
@@ -63,8 +66,9 @@ export default function NavBar({ user, setUser, setGameId }) {
                 style={{ color: "grey" }}
                 activeStyle={{ fontWeight: "bold", color: "black" }}>
                     Register
-                </NavLink> 
-            </button> 
+                </NavLink>
+            </button>
+            <img src={logo} style={{height: "50%", marginLeft: "50px"}} id="navbar-logo" />
             </>)}
         </nav>
     )

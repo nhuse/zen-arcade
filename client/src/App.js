@@ -1,6 +1,6 @@
 import './App.css';
 import { useEffect, useState } from "react"
-import { Switch, Route, Redirect } from "react-router-dom"
+import { Switch, Route, useParams } from "react-router-dom"
 import NavBar from './components/NavBar'
 import Login from './components/Login'
 import Dashboard from './components/Dashboard'
@@ -8,6 +8,7 @@ import Register from './components/Register'
 import GameRender from './components/GameRender';
 import Reviews from './components/Reviews'
 import Profile from './components/Profile';
+import logo from './components/styles/IMG_0249.jpg'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -50,6 +51,7 @@ function App() {
         <div style={{ paddingBottom: "10px" }}>
           <NavBar user={user} setUser={setUser} setGameId={setGameId} />
         </div>
+        <img src={logo} id="logo" />
         <Switch>
           <Route path="/log_in">
             <Login setUser={setUser} />
@@ -67,7 +69,7 @@ function App() {
         <NavBar user={user} setUser={setUser} setGameId={setGameId} />
       </div>
       <Switch>
-        <Route exact path={`/game/${gameId}`} >
+        <Route path={`/game/:game_id`} >
           <GameRender gameId={gameId} user={user} />
         </Route>
         <Route exact path="/home">

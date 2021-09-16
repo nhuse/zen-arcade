@@ -42,3 +42,11 @@ li {
     transform: rotate(360deg);
   }
 }
+
+#logo {
+  height: auto;
+  width: 70%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
