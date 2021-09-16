@@ -3,17 +3,19 @@ import React, {useEffect} from 'react'
 function GameOver(props) {
 
   useEffect(()=>{
-    fetch('/scores', {
-      method: "POST",
-      headers: {
-          'Content-Type': "application/json"
-      },
-      body: JSON.stringify({
-          game_id: props.gameId,
-          user_id: props.userId,
-          score: props.score
+    if(props.score > 0) {
+      fetch('/scores', {
+        method: "POST",
+        headers: {
+            'Content-Type': "application/json"
+        },
+        body: JSON.stringify({
+            game_id: props.gameId,
+            user_id: props.userId,
+            score: props.score
+        })
       })
-    }) 
+    }
   }, [props.score])
 
   return (
