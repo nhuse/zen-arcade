@@ -22,10 +22,10 @@ export default function GameRender({ gameId, user, setAsteroidsHS }) {
         }, [])
 
     if (game_id === '1') {
-        return <Tetris user={user} hiScores={hiScores} gameId={gameId} />
+        return <Tetris user={user} hiScores={hiScores} gameId={game_id} />
     } else if (game_id === '2') {
-        return <Reacteroids setAsteroidsHS={setAsteroidsHS} />
+        return <Reacteroids setAsteroidsHS={setAsteroidsHS} userId={user.id} gameId={game_id}/>
     } else if (game_id === '3') {
-        return <Snake hiScores={hiScores} gameId={gameId} user={user} />
+        return <Snake hiScores={hiScores} gameId={game_id} user={user} />
     }
 }

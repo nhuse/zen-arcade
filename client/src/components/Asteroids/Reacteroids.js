@@ -159,7 +159,7 @@ export class Reacteroids extends Component {
       });
       localStorage['topscore'] = this.state.currentScore;
     }
-    if(this.state.gameOver && this.state.currentScore > 0) {
+    if(this.state.currentScore > 0) {
       fetch('/scores', {
         method: "POST",
         headers: {
