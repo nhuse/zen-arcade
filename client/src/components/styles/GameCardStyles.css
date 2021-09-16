@@ -1,5 +1,6 @@
 .game-flex-container {
     height: auto;
+    width: 100%;
     display: flex;
     flex-flow: row wrap;
     background-color: black;

@@ -2,7 +2,6 @@
     background-color: grey;
     display: flex;
     height: 40px;
-    width: 100vw;
     position: relative;
     align-items: center;
 }
