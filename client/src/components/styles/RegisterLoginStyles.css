@@ -2,7 +2,7 @@
     border-radius: 30px;
     height: auto;
     width: 300px;
-    position: absolute;
+    position: relative;
     top: 10%;
     left: 50%;
     margin-left: -150px;

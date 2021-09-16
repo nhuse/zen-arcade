@@ -16,11 +16,11 @@ export const StyledTetris = styled.div`
     align-items: flex-start;
     padding: 10px;
     margin: 0 auto;
-    max-width: 700px;
+    max-width: 50vw;
 
     aside {
         width: 100%;
-        max-width: 200px;
+        max-width: 150px;
         display: block;
         padding: 0 20px;
     }

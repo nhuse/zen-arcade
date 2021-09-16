@@ -51,7 +51,7 @@ function App() {
         <div style={{ paddingBottom: "10px" }}>
           <NavBar user={user} setUser={setUser} setGameId={setGameId} />
         </div>
-        <img src={logo} id="logo" />
+        <img src={logo} id="logo" style={{paddingBottom: "20px"}} />
         <Switch>
           <Route path="/log_in">
             <Login setUser={setUser} />
@@ -78,7 +78,7 @@ function App() {
         <Route path="/profile">
           <Profile reviews={reviews} setUser={setUser} user={user} games={games} setReviews={setReviews} />
         </Route>
-        <Route exact path={`/reviews`}>
+        <Route exact path={`/game_reviews/:game_id`}>
           <Reviews reviews={reviews} setReviews={setReviews} gameId={gameId} userId={user.id} />
         </Route>
       </Switch>

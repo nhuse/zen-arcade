@@ -27,7 +27,5 @@ export default function GameRender({ gameId, user, setAsteroidsHS }) {
         return <Reacteroids setAsteroidsHS={setAsteroidsHS} />
     } else if (game_id === '3') {
         return <Snake hiScores={hiScores} gameId={gameId} user={user} />
-    } else {
-        <div></div>
     }
 }

@@ -1,17 +1,18 @@
 import { useState } from "react"
+import { useParams } from 'react-router-dom'
 
 export default function Reviews({ reviews, setReviews, userId, gameId }) {
+    let { game_id } = useParams();
     const [reviewContent, setReviewContent] = useState({
         review: '',
         user_id: userId,
-        game_id: gameId
+        game_id: game_id
     })
 
     let filteredReviews = []
-    if(reviews.length > 0) {
-        console.log("Reviews", gameId)
-        filteredReviews = reviews.filter(r => r.game_id === gameId)
-    }
+
+    console.log("Reviews", game_id)
+    filteredReviews = reviews.filter(r => r.game_id == game_id)
 
     function handleChange(event) {
         setReviewContent({...reviewContent,

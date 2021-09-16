@@ -50,7 +50,7 @@ export default function NavBar({ user, setUser, setGameId }) {
                 </NavLink> 
                 <img src={userImg} className="profile-pic" alt="Profile"/>
             </button>
-            <img src={logo} style={{height: "50%", marginLeft: "50px"}} id="logo" />
+            <img src={logo} style={{height: "50%", marginLeft: "50px"}} />
             </>) 
             : 
             (<>
@@ -68,7 +68,7 @@ export default function NavBar({ user, setUser, setGameId }) {
                     Register
                 </NavLink>
             </button>
-            <img src={logo} style={{height: "50%", marginLeft: "50px"}} id="navbar-logo" />
+            <img src={logo} style={{height: "50%", marginLeft: "50px"}} />
             </>)}
         </nav>
     )

@@ -29,7 +29,7 @@ export default function Dashboard({ games, setGameId }) {
                             </div>
                         </Link>
                         <button className="review-button">
-                            <Link to={`/reviews`}
+                            <Link to={`/game_reviews/${game.id}`}
                             style={{ color: "grey" }}
                             activeStyle={{ fontWeight: "bold", color: "black" }} >
                                 Reviews
