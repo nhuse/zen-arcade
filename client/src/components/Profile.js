@@ -60,7 +60,7 @@ export default function Profile({ setUser, reviews, user, games, setReviews }){
                 </form>
             </div>
             <div className="all-user-reviews-wrapper">
-                <h1>Your Reviews</h1>
+                <h1>{user.name}'s Reviews</h1>
                 <div className="reviews-lists">
                 {games.map(game => {
                     return <ProfileReviews key={game.id} game={game} setReviews={setReviews} userReviews={userReviews} />
@@ -69,7 +69,7 @@ export default function Profile({ setUser, reviews, user, games, setReviews }){
             </div>
 
             <div className="all-user-highscores-wrapper">
-                <h1>Your Scores</h1>
+                <h1>{user.name}'s Scores</h1>
                 <div className="score-lists">
                 {games.map(game => {
                     const filteredScores = userScores.filter(r => r.game_id === game.id)

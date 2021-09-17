@@ -68,11 +68,13 @@ export default function SingleReview({ r, setReviews }) {
         </div>
         </form>) 
         : 
-        <>"{r.review}" on {dateString}
+        <>
+        <span style={{wordWrap: "break-word", maxWidth: "60%"}}>"{r.review}" on {dateString}</span>
         <div style={{padding: "10px 0 10px 0" }}>
         <button style={{ marginRight: "15px" }} onClick={() => handleDelete(r.id)}>🗑️</button>
         <button onClick={() => handleEdit(r.id)}>✏️</button>
-        </div> </>
+        </div> 
+        </>
         }
         </li>
     )

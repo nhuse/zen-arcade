@@ -7,7 +7,7 @@ class ScoreBoardsController < ApplicationController
 
     def game_scores
         scores = ScoreBoard.all.sort{|a, b| a.score <=> b.score}.reverse
-        render json: scores, only: [:score, :game_id, :created_at], include: { user: { only: [:username] }}, status: :ok
+        render json: scores, only: [:score, :game_id, :created_at], include: { user: { only: [:username, :profile_img] }}, status: :ok
     end
     def create
         score = ScoreBoard.create(score_params)
