@@ -8,15 +8,15 @@ export default function Dashboard({ games, setGameId }) {
     function handleGameClick(id) {
         setGameId(id)
     }
-
+    
+    // Fecth game high scores from backend
     useEffect(() => {
         fetch(`/game_scores`)
         .then(resp => resp.json())
         .then(data => setGameScores(data))
     }, [])
 
-    console.log(gameScores)
-
+    // Render cards for each game. Will also render top 5 high scores for each game with user's username and profile picture.
     return (
         <div className="game-flex-container">
             {games.map((game) => {
