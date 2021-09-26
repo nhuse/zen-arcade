@@ -30,20 +30,18 @@ function App() {
 
 
   useEffect(() => {
+    // Get games data from backend
     fetch('/games')
     .then(resp => resp.json())
     .then(data => setGames(data))
   }, [])
 
   useEffect(() => {
+    // Get reviews from backend
     fetch(`/reviews`)
     .then(resp => resp.json())
     .then(data => setReviews(data))
   }, [])
-
-  // useEffect(() => {
-  //   setGameId(null)
-  // }, [user])
 
   if(!user) {
     return (
