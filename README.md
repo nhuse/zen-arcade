@@ -2,6 +2,7 @@ Welcome to the Zen Arcade!
 A React/Rails web application with some games for your coding break.
 Created by Zachary Goodman, Elisa Shapiro, and Nathan Huse 
 aka ZEN
+App is deployed. Please go to zen-arcade.herokuapp.com to see our application!
 
 We'd like to credit the following online resources for inspiration/adaptation of games under their Creative Commons license, MIT license
 
