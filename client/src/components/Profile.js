@@ -6,12 +6,14 @@ export default function Profile({ setUser, reviews, user, games, setReviews }){
     const [userScores, setUserScores] = useState([])
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sep", "Oct", "Nov", "Dec"]
     const [avatar, setAvatar] = useState('');
+    // Default profile picture
     let userImg = 'https://i.imgur.com/9UfDphN.jpg'
 
     if(user.profile_img) {
         userImg = user.profile_img
     }
     
+    //Fetch all the current user's high scores
     useEffect(() => {
         fetch(`/scores/${user.id}`)
         .then(resp => resp.json())
@@ -19,6 +21,7 @@ export default function Profile({ setUser, reviews, user, games, setReviews }){
     }, [])
         
     let userReviews = []
+    // Filter reviews by user
     if(reviews) {
         userReviews = reviews.filter(r => r.user_id === user.id)
     }
