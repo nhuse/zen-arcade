@@ -21,6 +21,7 @@ export default function GameRender({ gameId, user, setAsteroidsHS }) {
             }
         }, [])
 
+    // Determines which game was clicked and then renders the component for that game.
     if (game_id === '1') {
         return <Tetris user={user} hiScores={hiScores} gameId={game_id} />
     } else if (game_id === '2') {
