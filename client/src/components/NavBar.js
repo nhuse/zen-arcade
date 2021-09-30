@@ -22,8 +22,10 @@ export default function NavBar({ user, setUser, setGameId }) {
         });          
     }
 
-    if(user.profile_img) {
-        userImg = user.profile_img
+    if(user) {
+        if(user.profile_img) {
+            userImg = user.profile_img
+        }
     }
     
     return (
@@ -31,7 +33,7 @@ export default function NavBar({ user, setUser, setGameId }) {
             { user ? 
             (<>
             <button className="nav-button" >
-                <NavLink exact to="/home"
+                <NavLink exact to="/"
                 style={{ color: "grey" }}
                 activeStyle={{ fontWeight: "bold", color: "black" }}>
                     Home
@@ -50,6 +52,13 @@ export default function NavBar({ user, setUser, setGameId }) {
             </>) 
             : 
             (<>
+            <button className="nav-button" >
+                <NavLink exact to="/"
+                style={{ color: "grey" }}
+                activeStyle={{ fontWeight: "bold", color: "black" }}>
+                    Home
+                </NavLink>
+            </button >
             <button className="nav-button" >
                 <NavLink to="/log_in"
                 style={{ color: "grey" }}

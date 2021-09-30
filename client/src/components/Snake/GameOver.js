@@ -3,7 +3,7 @@ import React, {useEffect} from 'react'
 function GameOver(props) {
 
   useEffect(()=>{
-    if(props.score > 0) {
+    if(props.score > 0 && props.user) {
       fetch('/scores', {
         method: "POST",
         headers: {
@@ -11,7 +11,7 @@ function GameOver(props) {
         },
         body: JSON.stringify({
             game_id: props.gameId,
-            user_id: props.userId,
+            user_id: props.user.id,
             score: props.score
         })
       })

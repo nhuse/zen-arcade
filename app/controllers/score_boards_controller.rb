@@ -1,4 +1,5 @@
 class ScoreBoardsController < ApplicationController
+    skip_before_action :authorize, only: :game_scores
 
     def user_scores
         scores = ScoreBoard.where(user_id: params[:user_id])

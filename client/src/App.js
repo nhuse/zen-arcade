@@ -1,6 +1,6 @@
 import './App.css';
 import { useEffect, useState } from "react"
-import { Switch, Route, useParams } from "react-router-dom"
+import { Switch, Route, useHistory } from "react-router-dom"
 import NavBar from './components/NavBar'
 import Login from './components/Login'
 import Dashboard from './components/Dashboard'
@@ -15,6 +15,7 @@ function App() {
   const [gameId, setGameId] = useState()
   const [reviews, setReviews] = useState([])
   const [games, setGames] = useState([])
+  const history = useHistory()
 
   useEffect(async() => {
     // auto-login
@@ -49,13 +50,19 @@ function App() {
         <div style={{ paddingBottom: "10px" }}>
           <NavBar user={user} setUser={setUser} setGameId={setGameId} />
         </div>
-        <img src={logo} id="logo" style={{paddingBottom: "20px"}} />
+        {/* <img src={logo} id="logo" style={{paddingBottom: "20px"}} /> */}
         <Switch>
           <Route path="/log_in">
             <Login setUser={setUser} />
           </Route>
           <Route path="/register">
             <Register setUser={setUser} />
+          </Route>
+          <Route exact path="/">
+            <Dashboard games={games} setGames={setGames} user={user} setGameId={setGameId} user={user} />
+          </Route>
+          <Route path={`/game/:game_id`} >
+            <GameRender gameId={gameId} user={user} />
           </Route>
         </Switch>
       </div>
@@ -70,7 +77,7 @@ function App() {
         <Route path={`/game/:game_id`} >
           <GameRender gameId={gameId} user={user} />
         </Route>
-        <Route exact path="/home">
+        <Route exact path="/">
           <Dashboard games={games} setGames={setGames} user={user} setGameId={setGameId} />
         </Route>
         <Route path="/profile">

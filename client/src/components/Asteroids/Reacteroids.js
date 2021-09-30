@@ -159,7 +159,7 @@ export class Reacteroids extends Component {
       });
       localStorage['topscore'] = this.state.currentScore;
     }
-    if(this.state.currentScore > 0) {
+    if(this.state.currentScore > 0 && this.props.user) {
       fetch('/scores', {
         method: "POST",
         headers: {
@@ -167,7 +167,7 @@ export class Reacteroids extends Component {
         },
         body: JSON.stringify({
           game_id: this.props.gameId,
-          user_id: this.props.userId,
+          user_id: this.props.user.id,
           score: this.state.currentScore
         })
       })
