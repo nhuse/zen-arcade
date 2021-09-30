@@ -31,7 +31,7 @@ export default function Login({ setUser }) {
                 alert(data.error)
             } else {
                 setUser(data)
-                history.push("/home")
+                history.push("/")
             }
         })
     }

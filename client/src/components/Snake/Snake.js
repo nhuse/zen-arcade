@@ -366,7 +366,7 @@ class Snake extends React.Component {
           newHighScore={this.state.newHighScore}
           score={this.state.score}
           gameId={this.props.gameId}
-          userId={this.props.user.id}
+          userId={this.props.user}
           
         />
       )

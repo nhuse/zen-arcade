@@ -7,9 +7,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom'
 import '../components/Asteroids/style.css';
 
-export default function GameRender({ gameId, user, setAsteroidsHS }) {
+export default function GameRender({ user, setAsteroidsHS }) {
     let { game_id } = useParams();
-    console.log(`gameRender ${game_id}`)
     const [hiScores, setHiScores] = useState([])
         useEffect(() => {
             if(game_id) {
@@ -25,7 +24,7 @@ export default function GameRender({ gameId, user, setAsteroidsHS }) {
     if (game_id === '1') {
         return <Tetris user={user} hiScores={hiScores} gameId={game_id} />
     } else if (game_id === '2') {
-        return <Reacteroids setAsteroidsHS={setAsteroidsHS} userId={user.id} gameId={game_id}/>
+        return <Reacteroids setAsteroidsHS={setAsteroidsHS} user={user} gameId={game_id} />
     } else if (game_id === '3') {
         return <Snake hiScores={hiScores} gameId={game_id} user={user} />
     }

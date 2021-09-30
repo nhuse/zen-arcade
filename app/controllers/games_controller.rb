@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-    skip_before_action :authorize, only: :index
+    skip_before_action :authorize
     def index
         games = Game.all
         render json: games, except: [:created_at, :updated_at], status: :ok

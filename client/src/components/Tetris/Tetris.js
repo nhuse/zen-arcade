@@ -23,8 +23,7 @@ export default function Tetris({ gameId, user }) {
             updatePlayerPosition({ x: direction, y: 0 })
         }
     }
-    console.log(gameId)
-
+    
     function startGame() {
         //Reset Game
         setStage(createStage());
@@ -55,7 +54,7 @@ export default function Tetris({ gameId, user }) {
     }
 
     useEffect(() => {
-        if(gameOver && score > 0) {
+        if(gameOver && score > 0 && user) {
             let scoreData={
                 game_id: gameId,
                 user_id: user.id,

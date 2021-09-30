@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-    skip_before_action :authorize, only: :index
     def index
         reviews = Review.order(:id)
         render json: reviews, include: { user: { only: [:name] }}
